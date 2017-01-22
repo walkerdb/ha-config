@@ -1,0 +1,11 @@
+secrets.yaml
+.HA_VERSION
+.uuid
+
+*.log
+*.db
+
+deps
+phue.conf
+
+nohup.out
