@@ -44,6 +44,8 @@ sensor:
       - icon
       - temperature
       - hourly_summary
+
+binary_sensor:
   - platform: iss
 
 media_player:
@@ -65,6 +67,9 @@ ecobee:
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
+
+zwave:
+  usb_path: /dev/ttyACM0
 
 automation:
   - alias: Switch to audio input
