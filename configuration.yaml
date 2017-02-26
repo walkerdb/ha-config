@@ -63,8 +63,6 @@ group:
       - group.climate
       - media_player.sound_system
       - media_player.tv
-      - binary_sensor.aurora_visibility
-      - binary_sensor.iss
 
   lights:
     view: yes
@@ -103,6 +101,13 @@ group:
       - media_player.sound_system
       - media_player.tv
       - media_player.kitchen_home
+
+  space:
+    name: space
+    view: yes
+    entities:
+      - binary_sensor.aurora_visibility
+      - binary_sensor.iss
 
   kitchen:
     name: Kitchen
