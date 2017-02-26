@@ -1,0 +1,55 @@
+- alias: Switch to audio input
+  trigger:
+    - platform: state
+      entity_id: media_player.sound_system
+      to: "playing"
+  action:
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.avr
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.avr
+        source: "Chromecast"
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.tv
+
+
+- alias: Switch to TV input
+  trigger:
+    - platform: state
+      entity_id: media_player.tv
+      to: "playing"
+  action:
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.avr
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.avr
+        source: "Media Player"
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.sound_system
+
+
+- alias: Google Home Night Volume
+  trigger:
+    platform: time
+    after: '23:00:00'
+  action:
+    - service: media_player.volume_set
+      entity_id: media_player.kitchen_home
+      data:
+        volume_level: .35
+
+- alias: Google Home Day Volume
+  trigger:
+    platform: time
+    after: '10:00:00'
+  action:
+    - service: media_player.volume_set
+      entity_id: media_player.kitchen_home
+      data:
+        volume_level: .75

@@ -1,0 +1,79 @@
+default_view:
+  view: yes
+  entities:
+    - group.lights_abstracted
+    - group.weather
+    - group.climate
+    - media_player.sound_system
+    - media_player.tv
+
+lights:
+  view: yes
+  entities:
+    - group.living_room
+    - group.kitchen
+    - group.bathroom
+    - group.bedroom
+
+lights_abstracted:
+  name: Lights
+  entities:
+    - light.kitchen
+    - light.living_room
+    - light.bathroom
+    - light.bedroom
+
+climate:
+  name: Climate
+  entities:
+    - climate.living_room
+    - sensor.living_room_humidity
+    - sensor.living_room_nest_protect_smoke_status
+
+weather:
+  name: Weather
+  entities:
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_hourly_summary
+
+media:
+  name: Media
+  view: yes
+  entities:
+    - media_player.avr
+    - media_player.sound_system
+    - media_player.tv
+    - media_player.kitchen_home
+
+space:
+  name: space
+  view: yes
+  entities:
+    - binary_sensor.aurora_visibility
+    - binary_sensor.iss
+
+kitchen:
+  name: Kitchen
+  entities:
+    - light.kitchen_1
+    - light.kitchen_2
+    - light.kitchen_3
+    - light.kitchen_4
+    - light.kitchen_5
+
+living_room:
+  name: Living room
+  entities:
+    - light.desk_lamp
+    - light.main_light
+
+bathroom:
+  name: bathroom
+  entities:
+    - light.bathroom_1
+    - light.bathroom_2
+
+bedroom:
+  name: bedroom
+  entities:
+    - light.bedroom_lamp
