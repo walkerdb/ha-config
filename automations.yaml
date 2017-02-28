@@ -66,4 +66,4 @@
     - service: media_player.volume_set
       entity_id: media_player.kitchen_home
       data:
-        volume_level: .75
+        volume_level: .55
