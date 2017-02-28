@@ -71,5 +71,6 @@ notify:
 zwave:
   usb_path: /dev/ttyACM0
 
+script: !include scripts.yaml
 group: !include groups.yaml
 automation: !include automations.yaml

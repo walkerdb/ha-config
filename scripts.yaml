@@ -1,0 +1,8 @@
+go_to_bed:
+  alias: Shutting down for the night
+  sequence:
+    - service: light.turn_off
+      entity_id: group.all_lights
+
+    - service: media_player.turn_off
+      entity_id: media_player.avr
