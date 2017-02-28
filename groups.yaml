@@ -4,16 +4,22 @@ default_view:
     - group.lights_abstracted
     - group.weather
     - group.climate
+    - group.doors
     - media_player.sound_system
     - media_player.tv
+
+doors:
+  name: Doors
+  entities:
+    - sensor.door_living_room
 
 lights:
   view: yes
   entities:
-    - group.living_room
-    - group.kitchen
-    - group.bathroom
-    - group.bedroom
+    - group.living_room_lights
+    - group.kitchen_lights
+    - group.bathroom_lights
+    - group.bedroom_lights
 
 lights_abstracted:
   name: Lights
@@ -52,7 +58,7 @@ space:
     - binary_sensor.aurora_visibility
     - binary_sensor.iss
 
-kitchen:
+kitchen_lights:
   name: Kitchen
   entities:
     - light.kitchen_1
@@ -61,19 +67,20 @@ kitchen:
     - light.kitchen_4
     - light.kitchen_5
 
-living_room:
+living_room_lights:
   name: Living room
   entities:
     - light.desk_lamp
     - light.main_light
 
-bathroom:
+bathroom_lights:
   name: bathroom
   entities:
     - light.bathroom_1
     - light.bathroom_2
 
-bedroom:
+bedroom_lights:
   name: bedroom
   entities:
     - light.bedroom_lamp
+

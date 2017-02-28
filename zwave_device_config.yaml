@@ -1,0 +1,3 @@
+binary_sensor.__sensor_2_0:
+  ignored: false
+  polling_intensity: 1
