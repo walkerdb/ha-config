@@ -33,6 +33,20 @@
       data:
         entity_id: media_player.sound_system
 
+- alias: Alarm if door opens when we're not here
+  trigger:
+    platform: state
+    entity_id: sensor.door_living_room
+    to: 'open'
+  condition:
+    condition: template
+    value_template: "{{ states.climate.living_room.attributes.min_temp <= 60 }}"
+  action:
+    service: notify.twilio
+    data:
+      message: 'Your front door has opened'
+      target:
+        - !secret my_number
 
 - alias: Google Home Night Volume
   trigger:
