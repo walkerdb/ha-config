@@ -6,3 +6,12 @@ go_to_bed:
 
     - service: media_player.turn_off
       entity_id: media_player.avr
+
+im_home:
+  alias: You're back!
+  sequence:
+    - service: light.turn_on
+      entity_id: group.all_lights
+
+    - service: light.turn_off
+      entity_id: group.bedroom_lights
