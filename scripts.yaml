@@ -11,7 +11,6 @@ im_home:
   alias: You're back!
   sequence:
     - service: light.turn_on
-      entity_id: group.all_lights
-
-    - service: light.turn_off
-      entity_id: group.bedroom_lights
+      entity_id: group.living_room_lights
+    - service: light.turn_on
+      entity_id: group.kitchen_lights
