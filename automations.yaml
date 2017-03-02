@@ -84,9 +84,9 @@
     state: 'off'
   action:
     service: light.turn_on
-    entity_id: group.bathroom_lights
+    entity_id: light.bathroom
     data:
-      brightness: 15
+      brightness: 5
 
 
 - alias: turn bathroom lights on low on hallway motion at night
@@ -101,9 +101,9 @@
     state: 'on'
   action:
     service: light.turn_on
-    entity_id: group.bathroom_lights
+    entity_id: light.bathroom
     data:
-      brightness: 100
+      brightness: 200
 
 
 - alias: turn bathroom lights off when no motion
@@ -114,4 +114,4 @@
     to: '0'
   action:
     service: light.turn_off
-    entity_id: group.bathroom_lights
+    entity_id: light.bathroom

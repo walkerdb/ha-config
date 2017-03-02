@@ -78,9 +78,9 @@ bathroom_lights:
   entities:
     - light.bathroom_1
     - light.bathroom_2
+    - light.hallway
 
 bedroom_lights:
   name: bedroom
   entities:
     - light.bedroom_lamp
-
