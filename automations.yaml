@@ -72,6 +72,8 @@
         volume_level: .55
 
 
+### Bathroom lights motion automations
+
 - alias: turn bathroom lights on low on hallway motion at night
   trigger:
     platform: state
@@ -79,9 +81,15 @@
     from: '0'
     to: '8'
   condition:
-    condition: state
-    entity_id: light.main_light
-    state: 'off'
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: '{{ state.attributes.elevation }}'
+        below: 0.0
+      - condition: state
+        entity_id: sensor.living_room_is_dim
+        state: 'yes'
   action:
     service: light.turn_on
     entity_id: light.bathroom
@@ -89,16 +97,22 @@
       brightness: 5
 
 
-- alias: turn bathroom lights on low on hallway motion at night
+- alias: turn bathroom lights on high on hallway motion during the day
   trigger:
     platform: state
     entity_id: sensor.aeotec_zw100_multisensor_6_burglar_3_10
     from: '0'
     to: '8'
   condition:
-    condition: state
-    entity_id: light.main_light
-    state: 'on'
+    condition: or
+    conditions:
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: '{{ state.attributes.elevation }}'
+        above: 0.0
+      - condition: state
+        entity_id: sensor.living_room_is_dim
+        state: 'no'
   action:
     service: light.turn_on
     entity_id: light.bathroom
@@ -106,12 +120,45 @@
       brightness: 200
 
 
-- alias: turn bathroom lights off when no motion
+- alias: turn bathroom lights off when no motion -- normal
   trigger:
     platform: state
     entity_id: sensor.aeotec_zw100_multisensor_6_burglar_3_10
     from: '8'
     to: '0'
+    for:
+      minutes: 2  # 6 total minutes before shutdown
+  condition:
+    condition: or
+    conditions:
+      - condition: time
+        after: "00:00:00"
+        before: "07:30:00"
+      - condition: time
+        after: "12:00:00"
+        before: "22:00:00"
+  action:
+    service: light.turn_off
+    entity_id: light.bathroom
+
+
+- alias: turn bathroom lights off when no motion -- teeth brushing edition
+  trigger:
+    platform: state
+    entity_id: sensor.aeotec_zw100_multisensor_6_burglar_3_10
+    from: '8'
+    to: '0'
+    for:
+      minutes: 26  # 30 total minutes before shutdown
+  condition:
+    condition: or
+    conditions:
+      - condition: time
+        after: "22:00:00"
+        before: "00:00:00"
+      - condition: time
+        after: "07:30:00"
+        before: "12:00:00"
   action:
     service: light.turn_off
     entity_id: light.bathroom

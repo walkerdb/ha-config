@@ -57,6 +57,7 @@ space:
   entities:
     - binary_sensor.aurora_visibility
     - binary_sensor.iss
+    - sun.sun
 
 kitchen_lights:
   name: Kitchen
@@ -72,6 +73,7 @@ living_room_lights:
   entities:
     - light.desk_lamp
     - light.main_light
+    - sensor.living_room_is_dim
 
 bathroom_lights:
   name: bathroom
@@ -79,6 +81,7 @@ bathroom_lights:
     - light.bathroom_1
     - light.bathroom_2
     - light.hallway
+    - sensor.bathroom_motion
 
 bedroom_lights:
   name: bedroom
