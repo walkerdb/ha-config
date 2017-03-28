@@ -55,11 +55,12 @@ nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
-notify:
-  name: twilio
-  platform: twilio_sms
+twilio:
   account_sid: !secret twilio_account_sid
   auth_token: !secret twilio_auth_token
+
+notify:
+  platform: twilio_sms
   from_number: !secret twilio_from_number
 
 zwave:

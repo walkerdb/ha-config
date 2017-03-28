@@ -43,7 +43,7 @@
     condition: template
     value_template: "{{ states.climate.living_room.attributes.min_temp <= 60 }}"
   action:
-    service: notify.twilio
+    service: notify.twilio_sms
     data:
       message: 'Your front door has opened'
       target:
