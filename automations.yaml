@@ -120,14 +120,14 @@
       brightness: 200
 
 
-- alias: turn bathroom lights off when no motion -- normal
+- alias: turn bathroom lights off when no motion
   trigger:
     platform: state
     entity_id: sensor.aeotec_zw100_multisensor_6_burglar_3_10
     from: '8'
     to: '0'
     for:
-      minutes: 2  # 6 total minutes before shutdown
+      minutes: 41  # 45 total minutes before shutdown
   condition:
     condition: or
     conditions:
@@ -137,28 +137,6 @@
       - condition: time
         after: "12:00:00"
         before: "22:00:00"
-  action:
-    service: light.turn_off
-    entity_id: light.bathroom
-
-
-- alias: turn bathroom lights off when no motion -- teeth brushing edition
-  trigger:
-    platform: state
-    entity_id: sensor.aeotec_zw100_multisensor_6_burglar_3_10
-    from: '8'
-    to: '0'
-    for:
-      minutes: 26  # 30 total minutes before shutdown
-  condition:
-    condition: or
-    conditions:
-      - condition: time
-        after: "22:00:00"
-        before: "00:00:00"
-      - condition: time
-        after: "07:30:00"
-        before: "12:00:00"
   action:
     service: light.turn_off
     entity_id: light.bathroom
