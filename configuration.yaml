@@ -37,7 +37,7 @@ binary_sensor:
 
 media_player:
   - platform: cast
-  - platform: denonavr
+  - platform: denon
     name: avr
     host: 192.168.1.43
 

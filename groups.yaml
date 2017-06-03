@@ -5,8 +5,7 @@ default_view:
     - group.weather
     - group.climate
     - group.doors
-    - media_player.sound_system
-    - media_player.tv
+    - group.chromecasts
 
 doors:
   name: Doors
@@ -46,10 +45,23 @@ media:
   name: Media
   view: yes
   entities:
-    - media_player.avr
+    - group.media_players
+    - group.chromecasts
+
+chromecasts:
+  name: chromecasts
+  entities:
+    - media_player.everywhere
     - media_player.sound_system
+    - media_player.bathroom
     - media_player.tv
     - media_player.kitchen_home
+
+media_players:
+  name: Media Players
+  entities:
+    - media_player.avr
+    - media_player.denon_avrs710w
 
 space:
   name: space

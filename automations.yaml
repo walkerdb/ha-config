@@ -3,13 +3,16 @@
     - platform: state
       entity_id: media_player.sound_system
       to: "playing"
+    - platform: state
+      entity_id: media_player.everything
+      to: "playing"
   action:
     - service: media_player.turn_on
       data:
-        entity_id: media_player.avr
+        entity_id: media_player.denon_avrs710w
     - service: media_player.select_source
       data:
-        entity_id: media_player.avr
+        entity_id: media_player.denon_avrs710w
         source: "Chromecast"
     - service: media_player.media_pause
       data:
@@ -24,10 +27,10 @@
   action:
     - service: media_player.turn_on
       data:
-        entity_id: media_player.avr
+        entity_id: media_player.denon_avrs710w
     - service: media_player.select_source
       data:
-        entity_id: media_player.avr
+        entity_id: media_player.denon_avrs710w
         source: "Media Player"
     - service: media_player.media_pause
       data:
