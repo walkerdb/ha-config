@@ -51,7 +51,7 @@ media:
 chromecasts:
   name: chromecasts
   entities:
-    - media_player.everywhere
+    - media_player.everything
     - media_player.sound_system
     - media_player.bathroom
     - media_player.tv
