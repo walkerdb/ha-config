@@ -80,7 +80,7 @@
 - alias: turn bathroom lights on low on hallway motion at night
   trigger:
     platform: state
-    entity_id: sensor.aeotec_zw100_multisensor_6_burglar_3_10
+    entity_id: sensor.aeotec_zw100_multisensor_6_burglar
     from: '0'
     to: '8'
   condition:
@@ -103,7 +103,7 @@
 - alias: turn bathroom lights on high on hallway motion during the day
   trigger:
     platform: state
-    entity_id: sensor.aeotec_zw100_multisensor_6_burglar_3_10
+    entity_id: sensor.aeotec_zw100_multisensor_6_burglar
     from: '0'
     to: '8'
   condition:
@@ -126,7 +126,7 @@
 - alias: turn bathroom lights off when no motion
   trigger:
     platform: state
-    entity_id: sensor.aeotec_zw100_multisensor_6_burglar_3_10
+    entity_id: sensor.aeotec_zw100_multisensor_6_burglar
     from: '8'
     to: '0'
     for:
@@ -143,3 +143,22 @@
   action:
     service: light.turn_off
     entity_id: light.bathroom
+
+
+- alias: Lights -- reset brightness at daylight
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: light.turn_on
+      entity_id: group.living_room_lights
+      data:
+        brightness: 254
+    - service: light.turn_on
+      entity_id: group.kitchen_lights
+      data:
+        brightness: 254
+    - service: light.turn_off
+      entity_id: group.living_room_lights
+    - service: light.turn_off
+      entity_id: group.kitchen_lights

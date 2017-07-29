@@ -4,7 +4,7 @@ go_to_bed:
     - service: light.turn_off
       entity_id: group.all_lights
     - service: media_player.turn_off
-      entity_id: group.media_players
+      entity_id: group.media
 
 im_home:
   alias: You're back!
@@ -20,4 +20,4 @@ im_leaving:
     - service: light.turn_off
       entity_id: group.all_lights
     - service: media_player.turn_off
-      entity_id: group.media_players
+      entity_id: group.media

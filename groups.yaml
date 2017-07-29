@@ -99,3 +99,4 @@ bedroom_lights:
   name: bedroom
   entities:
     - light.bedroom_lamp
+    
