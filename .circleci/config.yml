@@ -10,6 +10,7 @@ jobs:
       - run:
           command: |
             python3 -m pip install homeassistant
+            python3 -m pip uninstall boto botocore
             ls -la
             hass --script check_config -c .
 
