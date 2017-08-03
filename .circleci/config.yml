@@ -10,8 +10,7 @@ jobs:
       - run:
           command: |
             python3 -m pip install homeassistant
-            python3 -m pip freeze | grep boto
-            python3 -m pip uninstall botocore
+            python3 -m pip uninstall botocore boto3 -y
             ls -la
             hass --script check_config -c .
 
