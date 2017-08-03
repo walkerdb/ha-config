@@ -1,7 +1,6 @@
 version: 2.0
 jobs:
-
-  test_config:
+  build:
     docker:
       - image: homeassistant/home-assistant:latest
     steps:
@@ -14,6 +13,6 @@ jobs:
 workflows:
   version: 2
 
-  test_config:
+  build_and_test:
     jobs:
-      - test_config
+      - build
