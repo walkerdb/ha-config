@@ -14,7 +14,6 @@ living_room_is_dim:
       yes
     {%- else  -%}
       no
-    {%- endif %}
 
 bathroom_motion:
   value_template: >-
