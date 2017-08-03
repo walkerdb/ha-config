@@ -1,4 +1,14 @@
 version: 2.0
+
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - build
+      - deploy:
+        requires:
+          - build
+
 jobs:
   build:
     docker:
@@ -12,9 +22,10 @@ jobs:
             echo "${SECRETS}" > secrets.yaml
             sed -i 's/--- /\n/g' secrets.yaml
             hass --script check_config -c .
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
+  deploy:
+    steps:
+      run:
+        command: |
+          ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'cd ./.homeassistant && git stash && git pr && git stash pop'
+          ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'hass --script check_config'
+          ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'systemctl restart home-assistant.service'
