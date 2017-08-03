@@ -23,7 +23,7 @@ jobs:
             sed -i 's/--- /\n/g' secrets.yaml
             hass --script check_config -c .
   deploy:
-    steps:
+    steps: 
       run:
         command: |
           ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'cd ./.homeassistant && git stash && git pr && git stash pop'
