@@ -8,7 +8,7 @@ jobs:
       - run:
           command: |
             python3 -m pip install homeassistant
-            hass --script check_config .
+            hass --script check_config -c .
 
 workflows:
   version: 2
