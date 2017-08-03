@@ -1,0 +1,19 @@
+version: 2.0
+jobs:
+
+  test_config:
+    docker:
+      - image: homeassistant/home-assistant:latest
+    steps:
+      - checkout
+      - run:
+          command: |
+            python3 -m pip install homeassistant
+            hass --script check_config .
+
+workflows:
+  version: 2
+
+  test_config:
+    jobs:
+      - test_config
