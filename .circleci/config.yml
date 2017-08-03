@@ -11,6 +11,8 @@ jobs:
           command: |
             python3 -m pip install homeassistant
             python3 -m pip uninstall botocore boto3 -y
+            echo "${SECRETS}" > secrets.yaml
+            sed -i 's/--- /\n/g' secrets.yaml
             ls -la
             hass --script check_config -c .
 
