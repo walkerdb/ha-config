@@ -20,7 +20,7 @@ jobs:
           command: |
             ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'cd ./.homeassistant && git stash && git pr && git stash pop'
             ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'hass --script check_config'
-            ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'rm -f ~/dasher/config/config.json && cp bootstrap/dasher/config.json ~/dasher/config/config.json'
+            ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'rm -f ~/dasher/config/config.json && cp ~/.homeassistant/bootstrap/dasher/config.json ~/dasher/config/config.json'
             ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'sed -i "s/PASSWORD/${HA_PASSWORD}/g" ~/dasher/config/config.json'
             ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'sudo systemctl restart home-assistant.service'
             ssh "${DEPLOY_USER}"@"${DEPLOY_SERVER}" 'sudo systemctl restart dasher.service'
