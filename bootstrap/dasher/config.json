@@ -1,0 +1,46 @@
+{"buttons":[
+  {
+    "name": "Bathroom lights - pistachios",
+    "address": "68:37:e9:5f:8e:59",
+    "protocol": "udp",
+    "url": "http://localhost:7777/api/services/light/toggle",
+    "method": "POST",
+    "headers": {"x-ha-access": "PASSWORD"},
+    "json": true,
+    "body": {"entity_id": "group.bathroom_lights"}
+  },
+
+  {
+    "name": "Bathroom lights - shower",
+    "address": "68:37:e9:d2:da:99",
+    "protocol": "udp",
+    "url": "http://localhost:7777/api/services/light/toggle",
+    "method": "POST",
+    "headers": {"x-ha-access": "PASSWORD"},
+    "json": true,
+    "body": {"entity_id": "group.bathroom_lights"}
+  },
+
+  {
+    "name": "Bedroom lights",
+    "address": "68:37:e9:86:38:3b",
+    "protocol": "udp",
+    "url": "http://localhost:7777/api/services/light/toggle",
+    "method": "POST",
+    "headers": {"x-ha-access": "PASSWORD"},
+    "json": true,
+    "body": {"entity_id": "group.bedroom_lights"}
+  },
+
+  {
+    "name": "Meow Mix",
+    "address": "40:b4:cd:79:a6:85",
+    "protocol": "udp",
+    "url": "http://localhost:7777/api/services/light/turn_off",
+    "method": "POST",
+    "headers": {"x-ha-access": "PASSWORD"},
+    "json": true,
+    "body": {"entity_id": "group.lights"}
+  }
+
+]}

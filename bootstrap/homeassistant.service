@@ -5,7 +5,8 @@ After=network.target
 [Service]
 Type=simple
 User=%i
-ExecStart=/usr/local/bin/hass
+ExecStart=/usr/local/bin/hass -c /home/pi/.homeassistant
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
