@@ -1,4 +1,5 @@
-- alias: Switch to audio input
+- id: switch_to_audio_input
+  alias: Switch to audio input
   trigger:
     - platform: state
       entity_id: media_player.sound_system
@@ -19,7 +20,8 @@
         entity_id: media_player.tv
 
 
-- alias: Switch to TV input
+- id: switch_to_tv_input
+  alias: Switch to TV input
   trigger:
     - platform: state
       entity_id: media_player.tv
@@ -37,7 +39,8 @@
         entity_id: media_player.sound_system
 
 
-- alias: Alarm if door opens when we're not here
+- id: door_alarm
+  alias: Alarm if door opens when we're not here
   trigger:
     platform: state
     entity_id: sensor.door_living_room
@@ -53,7 +56,8 @@
         - !secret my_number
 
 
-- alias: Google Home Night Volume
+- id: home_night_volume
+  alias: Google Home Night Volume
   trigger:
     platform: time
     at: '23:00:00'
@@ -64,7 +68,8 @@
         volume_level: .35
 
 
-- alias: Google Home Day Volume
+- id: home_day_volume
+  alias: Google Home Day Volume
   trigger:
     platform: time
     at: '10:00:00'
@@ -77,7 +82,8 @@
 
 ### Bathroom lights motion automations
 
-- alias: turn bathroom lights on low on hallway motion at night
+- id: hallway_night
+  alias: turn bathroom lights on low on hallway motion at night
   trigger:
     platform: state
     entity_id: sensor.aeotec_zw100_multisensor_6_burglar
@@ -100,7 +106,8 @@
       brightness: 5
 
 
-- alias: turn bathroom lights on high on hallway motion during the day
+- id: hallway_day
+  alias: turn bathroom lights on high on hallway motion during the day
   trigger:
     platform: state
     entity_id: sensor.aeotec_zw100_multisensor_6_burglar
@@ -123,7 +130,8 @@
       brightness: 200
 
 
-- alias: turn bathroom lights off when no motion
+- id: bathroom_no_motion
+  alias: turn bathroom lights off when no motion
   trigger:
     platform: state
     entity_id: sensor.aeotec_zw100_multisensor_6_burglar
@@ -145,7 +153,8 @@
     entity_id: light.bathroom
 
 
-- alias: Lights -- reset brightness at daylight
+- id: reset_light_brightness_at_daylight
+  alias: Lights -- reset brightness at daylight
   trigger:
     platform: sun
     event: sunrise
