@@ -153,6 +153,48 @@
     entity_id: light.bathroom
 
 
+- id: dim_kitchen_lights_at_night
+  alias: Dim kitchen lights at night
+  trigger:
+    platform: time
+    at: '23:00:00'
+  condition:
+    - condition: state
+      entity_id: group.kitchen_lights
+      state: 'on'
+    - condition: numeric_state
+      entity_id: light.kitchen
+      value_template: '{{ state.attributes.brightness }}'
+      above: 100
+  action:
+    - service: light.turn_on
+      entity_id: group.kitchen_lights
+      data:
+        brightness: 100
+        transition: 2
+
+
+- id: dim_living_room_lights_at_night
+  alias: Dim living room lights at night
+  trigger:
+    platform: time
+    at: '23:00:00'
+  condition:
+    - condition: state
+      entity_id: group.living_room_lights
+      state: 'on'
+    - condition: numeric_state
+      entity_id: light.living_room
+      value_template: '{{ state.attributes.brightness }}'
+      above: 100
+  action:
+    - service: light.turn_on
+      entity_id: group.living_room_lights
+      data:
+        brightness: 100
+        transition: 2
+
+
 - id: reset_light_brightness_at_daylight
   alias: Lights -- reset brightness at daylight
   trigger:
