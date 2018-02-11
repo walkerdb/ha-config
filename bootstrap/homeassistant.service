@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=%i
-ExecStart=/usr/local/bin/hass -c /home/pi/.homeassistant
+ExecStart=/usr/local/bin/python3.6 /usr/local/bin/hass -c /home/pi/.homeassistant
 Restart=always
 
 [Install]

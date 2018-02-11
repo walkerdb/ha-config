@@ -11,5 +11,7 @@ ecobee.conf
 nest.conf
 nohup.out
 OZW_Log.txt
+*.xml
+.idea
 
 tts/

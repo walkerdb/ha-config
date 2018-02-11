@@ -15,4 +15,4 @@ cd dasher
 npm install
 cd ..
 
-sudo pip3 install sqlalchemy phue python_openzwave homeassistant
+sudo python3.6 -m pip install sqlalchemy phue python_openzwave homeassistant
