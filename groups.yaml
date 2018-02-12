@@ -11,6 +11,7 @@ doors:
   name: Doors
   entities:
     - sensor.door_living_room
+    - sensor.door_living_room_last_opened
 
 lights:
   view: yes
