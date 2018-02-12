@@ -30,6 +30,7 @@ sensor:
       - hourly_summary
   - platform: template
     sensors: !include custom_sensors.yaml
+  - platform: version
 
 binary_sensor:
   - platform: iss
