@@ -23,15 +23,15 @@ bathroom_motion:
     {%- else  -%}
       no
     {%- endif %}
-
-door_living_room_last_opened:
-    friendly_name: 'Living room door last opened'
-    value_template: >-
-      {%- if states.sensor.sensative_strips_access_control.last_updated -%}
-        {%- if is_state('sensor.sensative_strips_access_control', '22') -%}
-          Opened
-        {%- else -%}
-          Closed
-        {%- endif %}
-          at {{ as_timestamp(states.sensor.sensative_strips_access_control.last_updated) | timestamp_local }}
-      {%- endif -%}
+#
+#door_living_room_last_opened:
+#    friendly_name: 'Living room door last opened'
+#    value_template: >-
+#      {%- if states.sensor.sensative_strips_access_control.last_updated -%}
+#        {%- if is_state('sensor.sensative_strips_access_control', '22') -%}
+#          Opened
+#        {%- else -%}
+#          Closed
+#        {%- endif %}
+#          at {{ as_timestamp(states.sensor.sensative_strips_access_control.last_updated) | timestamp_local }}
+#      {%- endif -%}
