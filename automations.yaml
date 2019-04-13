@@ -157,7 +157,7 @@
   alias: Dim kitchen lights at night
   trigger:
     platform: time
-    at: '23:00:00'
+    at: '23:30:00'
   condition:
     - condition: state
       entity_id: group.kitchen_lights
@@ -171,14 +171,14 @@
       entity_id: group.kitchen_lights
       data:
         brightness: 100
-        transition: 2
+        transition: 200
 
 
 - id: dim_living_room_lights_at_night
   alias: Dim living room lights at night
   trigger:
     platform: time
-    at: '23:00:00'
+    at: '23:30:00'
   condition:
     - condition: state
       entity_id: group.living_room_lights
@@ -192,7 +192,7 @@
       entity_id: group.living_room_lights
       data:
         brightness: 100
-        transition: 2
+        transition: 200
 
 
 - id: reset_light_brightness_at_daylight
